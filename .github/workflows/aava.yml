@@ -1,0 +1,24 @@
+name: Test AAVA Action
+ 
+on:
+  workflow_dispatch:
+ 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+ 
+      - name: Run AAVA Action
+        uses: madanvucha12/aava-github-action@main
+ 
+        with:
+          workflow-id: "15654"
+          inputs: |
+            {
+              "brd":"Testing GitHub Action"
+            }
+          token: ${{ secrets.AAVA_TOKEN }}
+          base-url: "https://aava-dev-aws.aava.ai/"
